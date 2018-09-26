@@ -1,0 +1,51 @@
+AWS application deployment procedure
+—————————————————————
+
+ssh -i prod.pem ubuntu@18.191.130.217
+
+
+prod.pem-(authentication file generated while creating AWS server) 
+
+Instead of pem file set-up password using below command
+$sudo vi /etc/ssh/sshd_config
+
+Give new passed using 
+sudo passwd ubuntu
+
+Then restart service
+sudo service sshd restart
+
+
+To untar tomcat: tar -xvf apache-tomcat-8.5.32.tar.gz
+
+Install Java https://dzone.com/articles/installing-java-8-on-aws-ec2-amazon-linux-instance
+
+
+ls -al (for show hidden files also)
+
+Sudo su (for root user)
+
+Scp file_name_with_path ubuntu@18.223.126.17: (secure copy of files from local to remote server)
+Cp file_name folder_name (to copy files within same instance)
+
+Inbound:
+
+Ssh TCP 22 (is required to login to the system)
+Cutsum TCP Rule - TCP-8080 (is required to access aapplication)
+
+Installing home brew for Mac (Ref: https://brew.sh/)(In AWS use: apt install linuxbrew-wrapper )
+
+Install mongoDB (Ref:)https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+Install MongoDB in AWS steps:
+——————————————
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+
+
+ps -ef ( to check how many process are running currently)
+
+
